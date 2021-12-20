@@ -60,7 +60,7 @@ def MakeWeather(station):
         return False
 
     WeatherData = WeatherData["weatherElement"]
-    msg = "全台熱點山路路況天氣報告 - " + station
+    msg = "天氣報告 - " + station
     msg += "\n\n氣溫 = " + WeatherData[3]["elementValue"] + "℃\n"
     msg += "濕度 = " + \
         str(float(WeatherData[4]["elementValue"]) * 100) + "% RH\n"
@@ -72,7 +72,7 @@ def MakeWeather(station):
 def MakeRailFall(station):
     result = requests.get(
         "https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=rdec-key-123-45678-011121314")
-    msg = "全台熱點山路路況天氣降雨報告 - " + station + "\n\n"
+    msg = "天氣降雨 - " + station + "\n\n"
 
     if(result.status_code != 200):
         return "雨量資料讀取失敗"
